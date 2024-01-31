@@ -98,7 +98,7 @@ final_states = {"done"}
 machine = TuringMachine("101*10",
                         initial_state="start",
                         final_states=final_states,
-                        transition_function=transition_function)
+                        transition_functions=transition_function)
 
 print("Input:\n" + machine.get_tape())
 

@@ -8,16 +8,16 @@ class TuringMachine(object):
                  blank_symbol=" ",
                  initial_state="",
                  final_states=None,
-                 transition_function=None):
+                 transition_functions=None):
         self.tape = Tape(tape)
         self.head_position = 0
         self.blank_symbol = blank_symbol
         self.current_state = initial_state
 
-        if transition_function is None:
+        if transition_functions is None:
             self.transition_function = {}
         else:
-            self.transition_function = transition_function
+            self.transition_function = transition_functions
 
         if final_states is None:
             self.final_states = set()
