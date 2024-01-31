@@ -83,10 +83,10 @@ transition_function = {
 
     ("shift0", "0"): ("shift0", "0", "R"),
     ("shift0", "1"): ("shift1", "0", "R"),
-    ("shift0", " "): ("read", "0", "R"),
+    ("shift0", " "): ("right", "0", "R"),
 
     ("shift1", "1"): ("shift1", "1", "R"),
-    ("shift1", " "): ("read", "1", "R"),
+    ("shift1", " "): ("right", "1", "R"),
     ("shift1", "0"): ("shift0", "1", "R"),
 
     ("tidy", "0"): ("tidy", " ", "L"),
@@ -107,8 +107,11 @@ while not machine.should_finish():
 
     machine.next_step()
 
-    print("Step {}:\n{}".format(step_counter, machine.get_tape()))
+    print("Step {} ({}):\n{}\n{}".format(step_counter, machine.current_state, machine.get_tape(), machine.get_head()))
     step_counter += 1
+
+    if step_counter == 100:
+        break
 
 print("Result:\n")
 print(machine.get_tape())

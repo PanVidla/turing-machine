@@ -24,6 +24,18 @@ class TuringMachine(object):
         else:
             self.final_states = set(final_states)
 
+    def get_head(self):
+
+        head_position_string = ""
+
+        for position in self.tape.tape.keys():
+            if position == self.head_position:
+                head_position_string += "^"
+            else:
+                head_position_string += " "
+
+        return head_position_string
+
     def get_tape(self):
         return str(self.tape)
 
